@@ -65,7 +65,21 @@ a:hover { color: var(--charcoal); }
   text-decoration: none;
   letter-spacing: -0.02em;
 }
+.wordmark { display: inline-flex; align-items: center; gap: 0.55rem; }
+.wordmark .logo-mark { flex: none; }
 .wordmark .green { color: var(--sage-deep); }
+
+/* Brand page */
+.brand-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin: 2rem 0 1rem; }
+.brand-tile { margin: 0; padding: 1.75rem 1.25rem 1rem; background: #fff; border: 1px solid var(--border); border-radius: 14px; text-align: center; }
+.brand-tile.dark { background: var(--charcoal); border-color: var(--charcoal); }
+.brand-tile img { width: 100%; max-width: 280px; height: 72px; object-fit: contain; }
+.brand-tile img.small { height: 120px; }
+.brand-tile figcaption { margin-top: 0.75rem; font-size: 0.8rem; color: var(--muted); }
+.brand-tile.dark figcaption { color: #B9C4BF; }
+.swatches { display: flex; flex-wrap: wrap; gap: 1.25rem; font-size: 0.85rem; }
+.swatches span { display: block; width: 64px; height: 64px; border-radius: 12px; margin-bottom: 0.4rem; }
+@media (max-width: 560px) { .brand-grid { grid-template-columns: 1fr; } }
 .site-nav a {
   font-size: 0.9rem;
   color: var(--muted);
