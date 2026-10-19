@@ -1,0 +1,225 @@
+/* optionalsalad.com — shared styles. Fonts are self-hosted (no Google Fonts requests). */
+
+@font-face {
+  font-family: 'DM Sans';
+  src: url('/fonts/dm-sans-latin.woff2') format('woff2');
+  font-weight: 300 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'DM Serif Display';
+  src: url('/fonts/dm-serif-display-latin.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'DM Serif Display';
+  src: url('/fonts/dm-serif-display-italic-latin.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --sage: #7FA882;
+  --sage-deep: #3F6E4C;   /* text-safe sage */
+  --coral: #E07B6A;
+  --charcoal: #1E2525;
+  --ink: #3A4545;
+  --cream: #F8F6F1;
+  --card: #FFFFFF;
+  --muted: #5F6B66;       /* 4.5:1 on cream */
+  --border: #E2DED6;
+}
+
+html { font-size: 16px; }
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  background: var(--cream);
+  color: var(--charcoal);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+a { color: var(--sage-deep); }
+a:hover { color: var(--charcoal); }
+
+/* Header */
+.site-header {
+  padding: 1.75rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--border);
+}
+.wordmark {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.3rem;
+  color: var(--charcoal);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+.wordmark .green { color: var(--sage-deep); }
+.site-nav a {
+  font-size: 0.9rem;
+  color: var(--muted);
+  text-decoration: none;
+  margin-left: 1.5rem;
+}
+.site-nav a:first-child { margin-left: 0; }
+.site-nav a:hover, .site-nav a[aria-current="page"] { color: var(--charcoal); }
+
+/* Layout */
+main { flex: 1; width: 100%; }
+.wrap { max-width: 980px; margin: 0 auto; padding: 0 2rem; }
+.narrow { max-width: 740px; margin: 0 auto; padding: 4rem 2rem 5rem; }
+section { padding: 4.5rem 0; }
+section + section { border-top: 1px solid var(--border); }
+
+.eyebrow {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+h1 {
+  font-family: 'DM Serif Display', serif;
+  font-weight: 400;
+  font-size: clamp(2.3rem, 5vw, 3.6rem);
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+}
+h1 em { font-style: italic; color: var(--sage-deep); }
+h2 {
+  font-family: 'DM Serif Display', serif;
+  font-weight: 400;
+  font-size: 1.8rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+h3 { font-size: 1.05rem; font-weight: 500; margin-bottom: 0.4rem; }
+.lead {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--ink);
+  max-width: 40rem;
+  margin-top: 1.25rem;
+}
+p, li { font-size: 0.97rem; line-height: 1.75; color: var(--ink); }
+p { margin-bottom: 1rem; }
+ul, ol { padding-left: 1.4rem; margin-bottom: 1rem; }
+strong { font-weight: 500; color: var(--charcoal); }
+
+/* Principles grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 1.5rem;
+}
+.card p { margin-bottom: 0; }
+
+/* App card */
+.app-card {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 1.75rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+.app-card .text { flex: 1 1 300px; }
+.app-card h3 { font-family: 'DM Serif Display', serif; font-weight: 400; font-size: 1.5rem; }
+.badge {
+  display: inline-block;
+  padding: 0.35rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  font-size: 0.85rem;
+  color: var(--charcoal);
+  margin-right: 0.5rem;
+}
+.button {
+  display: inline-block;
+  padding: 0.75rem 1.4rem;
+  border-radius: 50px;
+  background: var(--charcoal);
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+.button:hover { color: #fff; background: #000; }
+
+/* DoWeDontWe bubbles (app brand — only on DoWeDontWe pages and its card) */
+.bubbles { position: relative; width: 108px; height: 96px; flex: 0 0 auto; }
+.bubbles.small { transform: scale(0.75); transform-origin: left center; }
+.bubble {
+  position: absolute;
+  width: 72px;
+  height: 58px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.bubble .dot { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,0.9); }
+.bubble-sage { background: var(--sage); left: 0; top: 0; }
+.bubble-coral { background: var(--coral); left: 32px; top: 30px; }
+
+/* Tables (policies, contact) */
+table { width: 100%; border-collapse: collapse; margin: 1.25rem 0; font-size: 0.9rem; }
+th { text-align: left; padding: 0.6rem 0.75rem; background: rgba(127,168,130,0.12); font-weight: 500; border-bottom: 1px solid var(--border); }
+td { padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--border); color: var(--ink); vertical-align: top; }
+
+/* Policy pages */
+.meta {
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin: 0.5rem 0 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.narrow h1 { font-size: 2.4rem; }
+.narrow h2 { font-size: 1.35rem; margin-top: 2.5rem; margin-bottom: 0.75rem; }
+.narrow h3 { margin-top: 1.5rem; }
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem 2rem;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.company { font-size: 0.82rem; line-height: 1.6; color: var(--muted); max-width: 34rem; }
+.company p { font-size: 0.82rem; line-height: 1.6; color: var(--muted); margin: 0; }
+.footer-links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; }
+.footer-links a { font-size: 0.85rem; color: var(--muted); text-decoration: none; }
+.footer-links a:hover { color: var(--charcoal); }
+
+@media (max-width: 600px) {
+  .site-header, .site-footer { padding-left: 1.25rem; padding-right: 1.25rem; }
+  .wrap { padding: 0 1.25rem; }
+  .narrow { padding: 3rem 1.25rem 4rem; }
+  section { padding: 3.25rem 0; }
+}
