@@ -1,0 +1,3 @@
+DM Sans and DM Serif Display are licensed under the SIL Open Font License 1.1
+(https://openfontlicense.org). Copyright the DM Sans and DM Serif Display project authors.
+Self-hosted here so visitors are not sent to Google Fonts.

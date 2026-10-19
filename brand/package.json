@@ -1,0 +1,11 @@
+{
+  "name": "optionalsalad-brand",
+  "private": true,
+  "type": "module",
+  "description": "Builds the Optional Salad logo set. Run: npm install && node build.mjs",
+  "scripts": { "build": "node build.mjs" },
+  "devDependencies": {
+    "@resvg/resvg-js": "2.6.2",
+    "opentype.js": "1.3.4"
+  }
+}
