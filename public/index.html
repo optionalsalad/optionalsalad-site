@@ -177,6 +177,16 @@
       box-shadow: 0 8px 28px rgba(30,37,37,0.22);
     }
 
+    /* Not a link until the app is in the stores — styled as a quiet badge, not a button. */
+    .coming-soon {
+      display: inline-block;
+      padding: 0.6rem 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      font-size: 0.9rem;
+      color: var(--charcoal);
+    }
+
     /* ── Footer ── */
     footer {
       padding: 1.75rem 2.5rem;
@@ -238,9 +248,9 @@
       Our first app is DoWeDontWe.
     </p>
 
-    <a class="app-link" href="https://dowe-dev--friends-test-aftzlu7d.web.app">
-      Try DoWeDontWe →
-    </a>
+    <p class="coming-soon">
+      Coming soon to Android and iPhone
+    </p>
   </main>
 
   <footer>
@@ -248,6 +258,7 @@
     <div class="footer-links">
       <a href="/privacy">Privacy Policy</a>
       <a href="/terms">Terms of Service</a>
+      <a href="/delete-account">Delete your account</a>
       <a href="mailto:hello@optionalsalad.com">hello@optionalsalad.com</a>
     </div>
   </footer>

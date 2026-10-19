@@ -1,0 +1,13 @@
+// optionalsalad.com — a static site served by a Cloudflare Worker (assets only, no code).
+// Cloudflare Workers Builds deploys this on every push to main; pull requests get a preview build.
+// The custom domains (optionalsalad.com + www) are attached to this Worker in the dashboard.
+{
+  "name": "optionalsalad-site",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./public",
+    // /privacy → privacy.html, /delete-account → delete-account.html, etc.
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  }
+}
