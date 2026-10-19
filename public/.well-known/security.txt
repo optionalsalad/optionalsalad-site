@@ -1,0 +1,5 @@
+Contact: mailto:security@optionalsalad.com
+Expires: 2027-10-19T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://optionalsalad.com/.well-known/security.txt
+Policy: https://optionalsalad.com/contact

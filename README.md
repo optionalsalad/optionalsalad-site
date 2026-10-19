@@ -1,0 +1,27 @@
+# optionalsalad.com
+
+The Optional Salad company website, with a section for each app (currently DoWeDontWe).
+
+- **Hosting:** Cloudflare Worker with static assets (`wrangler.jsonc`). Pushing to `main` publishes; pull
+  requests get a preview URL.
+- **Source:** page bodies in `src/pages/`, shared header and footer in `tools/build.mjs`, company details in
+  `src/site.json`. Cloudflare serves `public/` as committed.
+
+## Changing a page
+
+1. Edit the page in `src/pages/` (or the header and footer in `tools/build.mjs`).
+2. Run `node tools/build.mjs`.
+3. Commit `src/` and `public/` together.
+
+## When the company is registered
+
+Fill in `src/site.json` (`companyName`, `companyNumber`, `registeredOffice`, and later `icoRegistration` and
+`vatNumber` if any). Then run `node tools/build.mjs` and commit. UK law requires the registered name, number,
+place of registration and registered office on the company website. The footer of every page shows them.
+
+## Notes
+
+- Fonts are self-hosted (`public/fonts/`, SIL Open Font License), so there are no Google Fonts requests.
+- Old addresses redirect via `public/_redirects` (`/terms`, `/delete-account` → the DoWeDontWe pages).
+- `/.well-known/security.txt` points to security@. Renew its `Expires` date yearly.
+- Don't commit `.wrangler/` (it holds local request data, including location); it's in `.gitignore`.

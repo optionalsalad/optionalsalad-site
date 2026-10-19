@@ -1,0 +1,8 @@
+{
+  "_note": "Company details shown in every page footer. Fill these in once Optional Salad Ltd is registered, then run: node tools/build.mjs",
+  "companyName": "",
+  "companyNumber": "",
+  "registeredOffice": "",
+  "icoRegistration": "",
+  "vatNumber": ""
+}
