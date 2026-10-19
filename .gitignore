@@ -1,0 +1,3 @@
+# Local wrangler cache (contains request/location data) — never commit
+.wrangler/
+node_modules/
