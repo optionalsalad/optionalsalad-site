@@ -215,6 +215,22 @@ td { padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--border); color: var
 .narrow h2 { font-size: 1.35rem; margin-top: 2.5rem; margin-bottom: 0.75rem; }
 .narrow h3 { margin-top: 1.5rem; }
 
+/* Guide pages */
+.guide h3 { scroll-margin-top: 1rem; }
+.guide-toc { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.25rem 1.5rem; margin-bottom: 1rem; }
+.guide-toc ol { margin: 0.5rem 0 0 1.25rem; }
+.guide-toc li { margin: 0.25rem 0; }
+.guide-chips { list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.6rem 0 0.4rem; padding: 0; }
+.guide-chips li { margin: 0; }
+.guide-chips a { display: inline-block; padding: 0.25rem 0.7rem; border: 1px solid var(--border); border-radius: 50px; font-size: 0.85rem; text-decoration: none; color: var(--charcoal); background: var(--cream); }
+.guide-chips a:hover { border-color: var(--sage); }
+.guide-type { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.1rem 1.4rem; margin: 1rem 0; scroll-margin-top: 1rem; }
+.guide-type h3 { margin-top: 0; }
+.guide-type .summary { color: var(--muted); margin-bottom: 0.6rem; }
+.guide-type ol { margin-left: 1.25rem; }
+.guide-type li { margin: 0.35rem 0; }
+.badge-small { font-size: 0.72rem; padding: 0.1rem 0.55rem; vertical-align: middle; margin-left: 0.3rem; }
+
 /* Footer */
 .site-footer {
   border-top: 1px solid var(--border);
