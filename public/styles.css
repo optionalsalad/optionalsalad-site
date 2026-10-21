@@ -155,7 +155,9 @@ strong { font-weight: 500; color: var(--charcoal); }
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* the next phone peeking in shows it scrolls */
 }
+.shots::-webkit-scrollbar { display: none; }
 .shot { flex: 0 0 220px; margin: 0; scroll-snap-align: start; }
 .shot .phone {
   background: var(--charcoal);
@@ -166,6 +168,13 @@ strong { font-weight: 500; color: var(--charcoal); }
 .shot img { display: block; width: 100%; height: auto; aspect-ratio: 9 / 20; border-radius: 23px; background: var(--cream); }
 .shot figcaption { margin-top: 0.85rem; font-size: 0.88rem; line-height: 1.5; color: var(--ink); }
 .shot figcaption strong { display: block; }
+/* Wide screens: all five fit side by side, no scrolling */
+@media (min-width: 880px) {
+  .shots { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.1rem; overflow: visible; scroll-snap-type: none; }
+  .shot .phone { border-radius: 26px; padding: 7px; }
+  .shot img { border-radius: 20px; }
+  .shot figcaption { font-size: 0.84rem; }
+}
 
 /* App card */
 .app-card {
