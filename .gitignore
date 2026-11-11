@@ -1,3 +1,12 @@
 # Local wrangler cache (contains request/location data) — never commit
 .wrangler/
 node_modules/
+# Secrets for wrangler / local tools — never commit
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
+# Editor / OS clutter
+.DS_Store
+Thumbs.db
+*.log
