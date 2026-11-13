@@ -1,6 +1,6 @@
     <div class="narrow">
     <h1>DoWeDontWe privacy policy</h1>
-    <p class="meta">DoWeDontWe · made by Optional Salad · Last updated: 11 November 2026</p>
+    <p class="meta">DoWeDontWe · made by Optional Salad · Last updated: 13 November 2026</p>
 
     <h2>1. Who we are</h2>
     <p>DoWeDontWe is a shared decision-making app made by Optional Salad ("we", "us"). Optional Salad is being
@@ -46,9 +46,9 @@
     </ul>
     <h3>Your location</h3>
     <p>If you allow it, the app uses your phone's location <strong>on your phone</strong> to centre the map,
-      show distances and start a route from where you are. We don't store your location. When you ask for
-      directions from where you are, your location and the stops are sent to the directions service (section 5)
-      to work out the route.</p>
+      show distances and start a route from where you are. We don't store your location, and routes are worked
+      out on your phone. If you open a route in Google Maps, Apple Maps or Waze, that app receives the stops
+      (and works out where you are itself) under its own privacy policy.</p>
     <h3>Your age group</h3>
     <p>Stored with your account, as described in section 2. It decides which parts of the app you see: for
       under-18s we don't collect app usage statistics and don't show anything about paid plans (section 8).</p>
@@ -127,10 +127,9 @@
       <tr><th>Provider</th><th>What for</th><th>What they receive</th><th>Where</th></tr>
       <tr><td>Google Firebase (database, sign-in, App Check)</td><td>Running the app</td><td>Your account and room data</td><td>London, UK</td></tr>
       <tr><td>Google Firebase (Analytics, Crashlytics)</td><td>Usage statistics (phone apps only, adults only; never on the web), crash reports</td><td>Account ID, device info, events</td><td>USA</td></tr>
-      <tr><td>Cloudflare (our link service)</td><td>Fetching titles, pictures and shop logos for links you add; loading item pictures that some websites block; counting link clicks</td><td>The link or picture address, your IP address</td><td>Global</td></tr>
+      <tr><td>Cloudflare (our link service)</td><td>Fetching titles, pictures and shop logos for links you add; loading item pictures that some websites block; counting link clicks; passing place searches on to Nominatim (and keeping repeated searches for up to a week, not linked to you)</td><td>The link or picture address, what you type in place search or the spot you pick, your IP address</td><td>Global</td></tr>
       <tr><td>OpenFreeMap (Hyperknot Software Kft., Hungary; may be served through Cloudflare)</td><td>Showing maps</td><td>The map area you view, your IP address (not kept in their access logs; error logs up to 7 days)</td><td>EU</td></tr>
-      <tr><td>Nominatim (OpenStreetMap Foundation, UK)</td><td>Place search; naming a spot you pick on the map</td><td>What you type in place search, or the spot you pick; your IP address</td><td>UK / EU</td></tr>
-      <tr><td>OSRM routing service</td><td>Working out routes</td><td>Route coordinates, your IP address</td><td>Germany</td></tr>
+      <tr><td>Nominatim (OpenStreetMap Foundation, UK), through our link service</td><td>Place search; naming a spot you pick on the map</td><td>What you type in place search, or the spot you pick (not your IP address)</td><td>UK / EU</td></tr>
       <tr><td>Google / Apple</td><td>Sign-in and in-app purchases, if you use them</td><td>As described above</td><td>USA</td></tr>
     </table>
     <ul>
