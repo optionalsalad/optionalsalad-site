@@ -23,6 +23,7 @@ const pages = {
   'dowedontwe/privacy.html': { title: 'DoWeDontWe privacy policy — Optional Salad', desc: 'How DoWeDontWe handles your data.', nav: '/dowedontwe' },
   'dowedontwe/guide.html': { title: 'How to use DoWeDontWe — the full guide', desc: 'Every DoWeDontWe room type and feature, step by step — read it on your computer while you use the app.', nav: '/dowedontwe' },
   'dowedontwe/terms.html': { title: 'DoWeDontWe terms of service — Optional Salad', desc: 'The terms for using DoWeDontWe.', nav: '/dowedontwe' },
+  'dowedontwe/plans.html': { title: 'DoWeDontWe plans — Optional Salad', desc: 'What\'s free in DoWeDontWe, what Pro adds, and how to change or cancel your plan.', nav: '/dowedontwe' },
   'dowedontwe/delete-account.html': { title: 'Delete your DoWeDontWe account — Optional Salad', desc: 'How to delete your DoWeDontWe account and data.', nav: '/dowedontwe' },
 };
 
@@ -98,6 +99,7 @@ ${body.replace(/\s+$/, '')}
       <a href="/dowedontwe/guide">DoWeDontWe guide</a>
       <a href="/dowedontwe/privacy">DoWeDontWe privacy</a>
       <a href="/dowedontwe/terms">DoWeDontWe terms</a>
+      <a href="/dowedontwe/plans">DoWeDontWe plans</a>
       <a href="/dowedontwe/delete-account">Delete your account</a>
       <a href="/brand">Brand assets</a>
     </nav>
