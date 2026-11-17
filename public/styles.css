@@ -260,6 +260,24 @@ td { padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--border); color: var
 .guide-type .summary { color: var(--muted); margin-bottom: 0.6rem; }
 .guide-type ol { margin-left: 1.25rem; }
 .guide-type li { margin: 0.35rem 0; }
+
+/* Account page (new password, confirm email) */
+.account { max-width: 520px; }
+.account-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; }
+.account-card label { display: block; font-size: 0.9rem; font-weight: 500; color: var(--charcoal); margin: 0 0 0.35rem; }
+.account-card input[type="password"], .account-card input[type="text"] {
+  display: block; width: 100%; box-sizing: border-box; margin-bottom: 1.1rem; padding: 0.75rem 0.9rem;
+  font: inherit; font-size: 1rem; color: var(--charcoal); background: var(--cream);
+  border: 1px solid var(--border); border-radius: 12px;
+}
+.account-card input:focus { outline: 2px solid var(--sage); outline-offset: 1px; border-color: var(--sage); }
+.account-card label.show { display: flex; align-items: center; gap: 0.5rem; font-weight: 400; color: var(--ink); }
+.account-card .hint { font-size: 0.88rem; color: var(--muted); margin: 0.75rem 0 1.25rem; }
+.account-card .button { border: 0; cursor: pointer; font-family: inherit; }
+.account-card .button:disabled { background: var(--border); color: var(--muted); cursor: default; }
+.hint.ok, .account-message.ok { color: var(--sage-deep); }
+.hint.bad, .account-message.bad { color: #B4483A; }
+.account-message { font-size: 1.05rem; }
 .badge-small { font-size: 0.72rem; padding: 0.1rem 0.55rem; vertical-align: middle; margin-left: 0.3rem; }
 
 /* Footer */

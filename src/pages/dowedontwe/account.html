@@ -1,0 +1,137 @@
+    <div class="narrow account">
+    <div class="bubbles small" aria-hidden="true">
+      <div class="bubble bubble-sage"><div class="dot"></div><div class="dot"></div></div>
+      <div class="bubble bubble-coral"><div class="dot"></div><div class="dot"></div></div>
+    </div>
+    <p class="eyebrow" style="margin-top:1rem">DoWeDontWe · by Optional Salad</p>
+    <h1 id="title">Your DoWeDontWe account</h1>
+    <p class="meta" id="lead">This page finishes things you asked for by email, like choosing a new password.</p>
+
+    <!-- Choose a new password (Firebase's resetPassword link) -->
+    <form id="reset" class="account-card" hidden novalidate>
+      <label for="pw1">New password</label>
+      <input id="pw1" type="password" autocomplete="new-password" minlength="6" required>
+      <label for="pw2">New password again</label>
+      <input id="pw2" type="password" autocomplete="new-password" minlength="6" required>
+      <label class="show"><input id="show" type="checkbox"> Show passwords</label>
+      <p class="hint" id="check" aria-live="polite">At least 6 characters.</p>
+      <button class="button" id="save" type="submit" disabled>Save new password</button>
+    </form>
+
+    <p id="message" class="account-message" aria-live="polite" hidden></p>
+    <p id="next" hidden>Open DoWeDontWe and sign in with your email and new password.</p>
+    <p class="meta" style="margin-top:2.5rem">Didn't ask for this? You can ignore the email: nothing changes until
+      you finish here. Questions: <a href="mailto:support@optionalsalad.com">support@optionalsalad.com</a>.</p>
+    </div>
+
+    <script>
+      // Firebase sends account emails with a link here (Firebase console › Authentication › Templates ›
+      // custom action URL), adding mode, oobCode and apiKey. The page talks to Firebase's own REST API
+      // straight from the browser: no scripts from anywhere else, and nothing is stored.
+      (function () {
+        // Our own projects' web keys only (dowe-dev, dowe-prod), so the page can't be pointed at anyone else's.
+        var KEYS = ['AIzaSyA27jOpuknrZajVzWJsHO_YfRHXudv3Ho0', 'AIzaSyBO5uFovjGBzvA6gCGMuNW68QaDz1-GUG8'];
+        var q = new URLSearchParams(location.search);
+        var mode = q.get('mode'), code = q.get('oobCode'), key = q.get('apiKey');
+        var $ = function (id) { return document.getElementById(id); };
+
+        function say(title, text, ok) {
+          $('title').textContent = title;
+          $('lead').hidden = true;
+          var m = $('message');
+          m.textContent = text;
+          m.className = 'account-message' + (ok ? ' ok' : ' bad');
+          m.hidden = false;
+        }
+
+        function call(path, body) {
+          return fetch('https://identitytoolkit.googleapis.com/v1/' + path + '?key=' + encodeURIComponent(key), {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(body),
+          }).then(function (r) {
+            return r.json().then(function (j) {
+              if (!r.ok) throw new Error((j.error && j.error.message) || 'UNKNOWN');
+              return j;
+            });
+          });
+        }
+
+        function linkProblem(e) {
+          var m = String(e && e.message || '');
+          if (m.indexOf('EXPIRED_OOB_CODE') === 0 || m.indexOf('INVALID_OOB_CODE') === 0) {
+            say('This link has run out', 'It has expired or has already been used. Ask for a new one: on the ' +
+              'sign-in screen, enter your email and tap Forgot password?');
+          } else if (m.indexOf('USER_DISABLED') === 0) {
+            say('This account is switched off', 'Email support@optionalsalad.com and we\'ll help.');
+          } else {
+            say('Something went wrong', 'Check your connection and open the link again.');
+          }
+        }
+
+        if (!mode && !code) return; // Someone opened the page directly: the intro text says what it's for.
+        if (!code || KEYS.indexOf(key) < 0) {
+          say('This link isn\'t complete', 'Open the link from the email again, or copy the whole of it into ' +
+            'your browser.');
+          return;
+        }
+
+        if (mode === 'resetPassword') {
+          $('title').textContent = 'Choose a new password';
+          $('lead').textContent = 'Checking your link…';
+          // Asking without a new password only checks the link and tells us whose it is.
+          call('accounts:resetPassword', { oobCode: code }).then(function (j) {
+            $('lead').textContent = 'For ' + j.email + '. Type it twice so we know it\'s what you meant.';
+            $('reset').hidden = false;
+            $('pw1').focus();
+          }, linkProblem);
+
+          var check = function () {
+            var a = $('pw1').value, b = $('pw2').value, msg, ok = false;
+            if (a.length < 6) msg = 'At least 6 characters.';
+            else if (!b) msg = 'Now type it again.';
+            else if (a !== b) msg = 'The two passwords don\'t match yet.';
+            else { msg = 'They match.'; ok = true; }
+            $('check').textContent = msg;
+            $('check').className = 'hint' + (ok ? ' ok' : (b && a !== b ? ' bad' : ''));
+            $('save').disabled = !ok;
+            return ok;
+          };
+          $('pw1').addEventListener('input', check);
+          $('pw2').addEventListener('input', check);
+          $('show').addEventListener('change', function () {
+            var t = this.checked ? 'text' : 'password';
+            $('pw1').type = t;
+            $('pw2').type = t;
+          });
+          $('reset').addEventListener('submit', function (e) {
+            e.preventDefault();
+            if (!check()) return;
+            $('save').disabled = true;
+            $('save').textContent = 'Saving…';
+            call('accounts:resetPassword', { oobCode: code, newPassword: $('pw1').value }).then(function () {
+              $('reset').hidden = true;
+              say('Password changed', 'Your new password is saved.', true);
+              $('next').hidden = false;
+            }, function (err) {
+              if (String(err.message).indexOf('WEAK_PASSWORD') === 0) {
+                $('check').textContent = 'That password is too easy to guess. Try a longer one.';
+                $('check').className = 'hint bad';
+                $('save').textContent = 'Save new password';
+                $('save').disabled = false;
+              } else {
+                $('reset').hidden = true;
+                linkProblem(err);
+              }
+            });
+          });
+        } else if (mode === 'verifyEmail') {
+          $('title').textContent = 'Confirming your email…';
+          call('accounts:update', { oobCode: code }).then(function () {
+            say('Email confirmed', 'Thanks. You can close this page.', true);
+          }, linkProblem);
+        } else {
+          say('We can\'t do this here', 'Email support@optionalsalad.com and we\'ll sort it out.');
+        }
+      })();
+    </script>
