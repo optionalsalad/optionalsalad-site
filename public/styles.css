@@ -80,13 +80,13 @@ a:hover { color: var(--charcoal); }
 .swatches { display: flex; flex-wrap: wrap; gap: 1.25rem; font-size: 0.85rem; }
 .swatches span { display: block; width: 64px; height: 64px; border-radius: 12px; margin-bottom: 0.4rem; }
 @media (max-width: 560px) { .brand-grid { grid-template-columns: 1fr; } }
+.site-nav { display: flex; flex-wrap: wrap; gap: 0.35rem 1.5rem; }  /* a narrow phone: a second line */
 .site-nav a {
   font-size: 0.9rem;
   color: var(--muted);
   text-decoration: none;
-  margin-left: 1.5rem;
+  white-space: nowrap;
 }
-.site-nav a:first-child { margin-left: 0; }
 .site-nav a:hover, .site-nav a[aria-current="page"] { color: var(--charcoal); }
 
 /* Layout */
@@ -177,6 +177,35 @@ strong { font-weight: 500; color: var(--charcoal); }
   .shot figcaption { font-size: 0.84rem; }
 }
 
+/* Desktop app screenshots: one wide screen at a time, scrolling sideways on a phone */
+.screens {
+  display: flex;
+  gap: 1.25rem;
+  margin-top: 2rem;
+  padding: 0.25rem 0.25rem 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.screens::-webkit-scrollbar { display: none; }
+.screen { flex: 0 0 88%; margin: 0; scroll-snap-align: start; }
+.screen img {
+  display: block; width: 100%; height: auto;  /* proportions from each img's width and height */
+  border-radius: 12px; background: var(--charcoal);
+  box-shadow: 0 10px 30px rgba(30, 37, 37, 0.18);
+}
+.screen figcaption { margin-top: 0.85rem; font-size: 0.88rem; line-height: 1.5; color: var(--ink); }
+.screen figcaption strong { display: block; }
+/* Wide screens: stacked, each at full width */
+@media (min-width: 880px) {
+  .screens { display: grid; gap: 2.75rem; overflow: visible; scroll-snap-type: none; }
+}
+
+/* An app's own icon (pages for apps without a CSS mark) */
+.app-icon { display: block; width: 80px; height: 80px; border-radius: 18px; }
+.app-card .app-icon { width: 72px; height: 72px; border-radius: 16px; }
+
 /* App card */
 .app-card {
   display: flex;
@@ -214,7 +243,7 @@ strong { font-weight: 500; color: var(--charcoal); }
 
 /* DoWeDontWe bubbles (app brand — only on DoWeDontWe pages and its card) */
 .bubbles { position: relative; width: 108px; height: 96px; flex: 0 0 auto; }
-.bubbles.small { transform: scale(0.75); transform-origin: left center; }
+.bubbles.small { width: 81px; height: 72px; transform: scale(0.75); transform-origin: left center; }  /* takes the space it shows, so the text lines up with an app icon */
 .bubble {
   position: absolute;
   width: 72px;
@@ -298,6 +327,7 @@ td { padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--border); color: var
 
 @media (max-width: 600px) {
   .site-header, .site-footer { padding-left: 1.25rem; padding-right: 1.25rem; }
+  .site-nav { gap: 0.35rem 1.1rem; }
   .wrap { padding: 0 1.25rem; }
   .narrow { padding: 3rem 1.25rem 4rem; }
   section { padding: 3.25rem 0; }
