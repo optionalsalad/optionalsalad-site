@@ -191,7 +191,7 @@ strong { font-weight: 500; color: var(--charcoal); }
 .screens::-webkit-scrollbar { display: none; }
 .screen { flex: 0 0 88%; margin: 0; scroll-snap-align: start; }
 .screen img {
-  display: block; width: 100%; height: auto; aspect-ratio: 1440 / 772;
+  display: block; width: 100%; height: auto;  /* proportions from each img's width and height */
   border-radius: 12px; background: var(--charcoal);
   box-shadow: 0 10px 30px rgba(30, 37, 37, 0.18);
 }
