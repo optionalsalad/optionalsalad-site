@@ -243,7 +243,7 @@ strong { font-weight: 500; color: var(--charcoal); }
 
 /* DoWeDontWe bubbles (app brand — only on DoWeDontWe pages and its card) */
 .bubbles { position: relative; width: 108px; height: 96px; flex: 0 0 auto; }
-.bubbles.small { transform: scale(0.75); transform-origin: left center; }
+.bubbles.small { width: 81px; height: 72px; transform: scale(0.75); transform-origin: left center; }  /* takes the space it shows, so the text lines up with an app icon */
 .bubble {
   position: absolute;
   width: 72px;

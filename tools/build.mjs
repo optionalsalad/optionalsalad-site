@@ -20,7 +20,7 @@ const pages = {
   'brand.html': { title: 'Brand assets — Optional Salad', desc: 'The Optional Salad logo, colours and typeface, ready to download.', nav: '' },
   '404.html': { title: 'Page not found — Optional Salad', desc: 'This page does not exist.', nav: '' },
   'sonicroomslive/index.html': { title: 'Sonic Rooms Live — rehearse together, wherever you are', desc: 'Sonic Rooms Live is a band rehearsal room and multitrack recorder: play live over the internet, record every take, and everyone keeps every part. Coming soon for Windows.', nav: '/sonicroomslive' },
-  'dowedontwe/index.html': { title: 'DoWeDontWe — decide things together', desc: 'DoWeDontWe is a calm app for deciding things together — holidays, gifts, playlists, chores. Coming soon to Android and iPhone.', nav: '/dowedontwe' },
+  'dowedontwe/index.html': { title: 'DoWeDontWe — decide things together', desc: 'DoWeDontWe is a calm app for deciding things together — holidays, gifts, playlists and days out. Coming soon to Android and iPhone.', nav: '/dowedontwe' },
   'dowedontwe/privacy.html': { title: 'DoWeDontWe privacy policy — Optional Salad', desc: 'How DoWeDontWe handles your data.', nav: '/dowedontwe' },
   'dowedontwe/guide.html': { title: 'How to use DoWeDontWe — the full guide', desc: 'Every DoWeDontWe room type and feature, step by step — read it on your computer while you use the app.', nav: '/dowedontwe' },
   'dowedontwe/terms.html': { title: 'DoWeDontWe terms of service — Optional Salad', desc: 'The terms for using DoWeDontWe.', nav: '/dowedontwe' },
