@@ -19,6 +19,7 @@ const pages = {
   'privacy.html': { title: 'Website privacy — Optional Salad', desc: 'How optionalsalad.com handles your data, and links to each app\'s privacy policy.', nav: '' },
   'brand.html': { title: 'Brand assets — Optional Salad', desc: 'The Optional Salad logo, colours and typeface, ready to download.', nav: '' },
   '404.html': { title: 'Page not found — Optional Salad', desc: 'This page does not exist.', nav: '' },
+  'sonicroomslive/guide.html': { title: 'How to use Sonic Rooms Live — the guide', desc: 'Getting started, Solo, playing and recording with your band, the library, mixing, keyboard shortcuts and help: the Sonic Rooms Live guide.', nav: '/sonicroomslive' },
   'sonicroomslive/index.html': { title: 'Sonic Rooms Live — rehearse together, wherever you are', desc: 'Sonic Rooms Live is a band rehearsal room and multitrack recorder: play live over the internet, record every take, and everyone keeps every part. Coming soon for Windows.', nav: '/sonicroomslive' },
   'dowedontwe/index.html': { title: 'DoWeDontWe — decide things together', desc: 'DoWeDontWe is a calm app for deciding things together — holidays, gifts, playlists and days out. Coming soon to Android and iPhone.', nav: '/dowedontwe' },
   'dowedontwe/privacy.html': { title: 'DoWeDontWe privacy policy — Optional Salad', desc: 'How DoWeDontWe handles your data.', nav: '/dowedontwe' },
@@ -108,6 +109,7 @@ ${body.replace(/\s+$/, '')}
       <a href="/dowedontwe/plans">DoWeDontWe plans</a>
       <a href="/dowedontwe/delete-account">Delete your account</a>
       <a href="/sonicroomslive">Sonic Rooms Live</a>
+      <a href="/sonicroomslive/guide">Sonic Rooms Live guide</a>
       <a href="/brand">Brand assets</a>
     </nav>
   </footer>
